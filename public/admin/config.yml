@@ -2,6 +2,7 @@ backend:
   name: git-gateway
   branch: main
   base_url: https://dulcet-kangaroo-af0686.netlify.app
+  
 
 # Реальный адрес сайта
 site_url: https://vit-dotcom.github.io
