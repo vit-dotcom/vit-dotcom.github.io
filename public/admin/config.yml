@@ -1,7 +1,9 @@
 backend:
   name: git-gateway
   branch: main
+  base_url: https://dulcet-kangaroo-af0686.netlify.app
 
+# Реальный адрес сайта
 site_url: https://vit-dotcom.github.io
 display_url: https://vit-dotcom.github.io
 logo_url: /favicon.svg
@@ -27,7 +29,6 @@ collections:
           - { label: "Телефон", name: "phone", widget: "string", hint: "Формат: +79950055958" }
           - { label: "WhatsApp номер", name: "whatsapp", widget: "string", hint: "Формат: +79950055958" }
           - { label: "Telegram", name: "telegram", widget: "string", hint: "Без @, например: berezavitaliy" }
-
           - label: "Карточки доверия"
             name: "trustCards"
             widget: "list"
@@ -51,9 +52,9 @@ collections:
       - { label: "Город", name: "city", widget: "string", default: "Краснодар" }
       - { label: "Продано", name: "sold", widget: "boolean", default: false }
       - { label: "Обложка (превью для видео)", name: "cover", widget: "image" }
-      - { label: "Ссылка на видео", name: "videoUrl", widget: "string", hint: "Ссылка на VK Клип/Видео, YouTube или прямая ссылка на .mp4" }
+      - { label: "Ссылка на видео", name: "videoUrl", widget: "string", hint: "Ссылка на VK Клип/Видео (vk.ru/clip-... или vk.ru/video-...), YouTube или прямая ссылка на .mp4" }
       - { label: "Краткое описание (для карточки и SEO)", name: "summary", widget: "text" }
-      - { label: "Порядок отображения", name: "order", widget: "number", default: 0 }
+      - { label: "Порядок отображения", name: "order", widget: "number", default: 0, hint: "Меньше — выше на странице" }
       - { label: "Дата публикации", name: "publishDate", widget: "datetime", default: "" }
 
   - name: "videos"
@@ -64,7 +65,6 @@ collections:
     slug: "{{slug}}"
     fields:
       - { label: "Название", name: "title", widget: "string" }
-
       - label: "Роль ролика"
         name: "role"
         widget: "select"
@@ -73,7 +73,6 @@ collections:
           - { label: "Работа с покупателями", value: "buyers" }
           - { label: "Работа с продавцами", value: "sellers" }
           - { label: "Другое", value: "other" }
-
       - { label: "Ссылка на видео", name: "url", widget: "string", hint: "YouTube, RuTube, VK Video или прямая ссылка на .mp4" }
       - { label: "Обложка (превью)", name: "poster", widget: "image", required: false }
       - { label: "Порядок", name: "order", widget: "number", default: 0 }
@@ -85,7 +84,7 @@ collections:
     create: true
     slug: "{{slug}}"
     fields:
-      - { label: "Автор (роль + тип сделки, без выдуманных ФИО)", name: "author", widget: "string" }
+      - { label: "Автор (роль + тип сделки, без выдуманных ФИО)", name: "author", widget: "string", hint: "Например: «Покупатель — швейное производство»" }
       - { label: "Тип сделки", name: "dealType", widget: "string" }
       - { label: "Порядок", name: "order", widget: "number", default: 0 }
       - { label: "Текст отзыва", name: "body", widget: "markdown" }
